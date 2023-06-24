@@ -8,6 +8,10 @@
     <label>Ciudad de destino:</label>
     <input type="text" name="fin" [(ngModel)]="fin" required>
   </div>
+  <div>
+    <label>Evitar Ciudad:</label>
+    <input type="text" name="evitar" [(ngModel)]="evitar" >
+  </div>
   <button type="submit">Calcular ruta más económica</button>
 </form>
 <div *ngIf="result">

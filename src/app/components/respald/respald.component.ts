@@ -10,6 +10,7 @@ export class RespaldComponent implements OnInit {
 
   inicio !: string;
   fin !: string;
+  evitar !: string;
   result !: any;
   ciudades:string[]=[]
 
@@ -27,7 +28,7 @@ export class RespaldComponent implements OnInit {
 
   calculateShortestPath() {
     const url = 'http://localhost:5000/dijkstra';
-    const payload = { inicio: this.inicio, fin: this.fin };
+    const payload = { inicio: this.inicio, fin: this.fin, evitar:this.evitar};
     console.log("Hola 1")
     this.http.post<any>(url, payload).subscribe((response) => {
       this.result = response;
