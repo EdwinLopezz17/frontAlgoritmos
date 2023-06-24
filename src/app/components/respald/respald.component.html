@@ -1,0 +1,24 @@
+<h2>Algoritmo de Dijkstra</h2>
+<form (ngSubmit)="calculateShortestPath()" #dijkstraForm="ngForm">
+  <div>
+    <label>Ciudad de inicio:</label>
+    <input type="text" name="inicio" [(ngModel)]="inicio" required>
+  </div>
+  <div>
+    <label>Ciudad de destino:</label>
+    <input type="text" name="fin" [(ngModel)]="fin" required>
+  </div>
+  <button type="submit">Calcular ruta más económica</button>
+</form>
+<div *ngIf="result">
+  <h3>Camino más económico:</h3>
+  <ul>
+    <li *ngFor="let ciudad of result.camino; let i = index">
+      {{ ciudad.name }}
+      <span *ngIf="i < result.camino.length - 1">➡️➡️➡️</span>
+      <span *ngIf="i < result.camino.length - 1">{{ result.camino[i+1].name }}</span>
+    </li>
+  </ul>
+  <p>Peso Total: {{ result.peso }}</p>
+</div>
+

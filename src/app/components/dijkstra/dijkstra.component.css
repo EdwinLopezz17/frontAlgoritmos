@@ -1,0 +1,99 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+header{
+  height: 80px;
+  background: #FCE38A;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+}
+header img{
+  height: 60px;
+  width: auto;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    0deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)
+  )
+  ,url("https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+.container h2{
+  text-align: center;
+  color: white;
+  padding: 10px 10px 0;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+
+form{
+  margin: 40px auto 20px;
+  width: 80%;
+  max-width: 700px;
+  display: grid;
+  place-items: center;
+}
+
+form .formContent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+
+.inputbox{
+  display: flex;
+  flex-direction: column;
+  margin: 5px 10px;
+}
+.inputbox label{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: azure;
+  margin-bottom: 8px;
+}
+.inputbox input{
+  padding: 10px 15px;
+  color:black;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  background: #95E1D3;
+}
+#evitar{
+  background: #F38181;
+}
+button{
+  background: #EAFFD0;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.4s;
+  width: 180px;
+  margin-top: 25px;
+  font-size: 1.3rem;
+}
+button:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+  background:  #FCE38A;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+mat-autocomplete{
+  display: block;
+  background: green;
+}

@@ -1,0 +1,71 @@
+<main>
+
+  <header>
+    <img src="./assets/images/logo.png" alt="">
+  </header>
+
+  <div class="container">
+    <h2>Vuela inteligente</h2>
+    <h2>Gasta menos</h2>
+
+    <form (ngSubmit)="calculateShortestPath()" #dijkstraForm="ngForm">
+
+      <div class="formContent">
+        <div class="inputbox">
+          <label>Ciudad de inicio:</label>
+          <input type="text"
+                 [formControl]="inicioControl"
+                 [matAutocomplete]="auto"
+                 class="example-input">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let ciudad of filtedInicio | async" [value]="ciudad">
+              {{ciudad}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+        <div class="inputbox">
+          <label>Ciudad de destino:</label>
+          <input type="text"
+                 [formControl]="finControl"
+                 [matAutocomplete]="auto"
+                 class="example-input">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let ciudad of filtedFin | async" [value]="ciudad">
+              {{ciudad}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+        <div class="inputbox">
+          <label>Evitar pasar por:</label>
+          <input type="text"
+                 id="evitar"
+                 [formControl]="evitarControl"
+                 [matAutocomplete]="auto"
+                 class="example-input">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let ciudad of filtedEvitar | async" [value]="ciudad">
+              {{ciudad}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+      </div>
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div *ngIf="result">
+      <h3>Camino más económico:</h3>
+      <ul>
+        <li *ngFor="let ciudad of result.camino; let i = index">
+          {{ ciudad.name }}
+          <span *ngIf="i < result.camino.length - 1">➡️➡️➡️</span>
+          <span *ngIf="i < result.camino.length - 1">{{ result.camino[i+1].name }}  ({{ result.camino[i+1].distancia - ciudad.distancia}} PEN)</span>
+        </li>
+      </ul>
+      <p>Peso Total: {{ result.peso }}</p>
+    </div>
+  </div>
+</main>
+
+
