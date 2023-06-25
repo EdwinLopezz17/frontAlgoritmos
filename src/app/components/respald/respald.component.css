@@ -1,0 +1,140 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  height: 60px;
+  background: #FCE38A;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+}
+header img{
+  height: 50px;
+  width: auto;
+}
+.container{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    0deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)
+  )
+  ,url("https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+.container h2{
+  text-align: center;
+  color: white;
+  padding: 10px 10px 0;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+form{
+  margin: 20px auto;
+  width: 80%;
+  max-width: 700px;
+  display: grid;
+  place-items: center;
+}
+form .formContent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+.inputbox{
+  display: flex;
+  flex-direction: column;
+  margin: 5px 10px;
+}
+
+.inputbox label{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: azure;
+  margin-bottom: 8px;
+}
+.inputbox input{
+  padding: 10px 15px;
+  color:black;
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background: #95E1D3;
+}
+#evitar{
+  background: #F38181;
+}
+button{
+  background: #EAFFD0;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.4s;
+  width: 180px;
+  margin-top: 25px;
+  font-size: 1.3rem;
+}
+button:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+  background:  #FCE38A;
+}
+
+.resultado{
+  width: 70%;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  background: #EAFFD0;
+  height: 400px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.resultado h3{
+  color: black;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.resultado th{
+  color: black;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin: 15px 0 30px;
+  padding: 13px;
+}
+.resultado td{
+  color: black;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 15px 0;
+}
+.resultado td span{
+  color: #F38181;
+  margin: 0 10px;
+}
+
+.resultado h4{
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.resultado h4 p{
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 8px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #F38181;
+  font-weight: 500;
+}

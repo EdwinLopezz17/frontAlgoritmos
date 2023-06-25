@@ -1,28 +1,84 @@
-<h2>Algoritmo de Dijkstra</h2>
-<form (ngSubmit)="calculateShortestPath()" #dijkstraForm="ngForm">
-  <div>
-    <label>Ciudad de inicio:</label>
-    <input type="text" name="inicio" [(ngModel)]="inicio" required>
-  </div>
-  <div>
-    <label>Ciudad de destino:</label>
-    <input type="text" name="fin" [(ngModel)]="fin" required>
-  </div>
-  <div>
-    <label>Evitar Ciudad:</label>
-    <input type="text" name="evitar" [(ngModel)]="evitar" >
-  </div>
-  <button type="submit">Calcular ruta más económica</button>
-</form>
-<div *ngIf="result">
-  <h3>Camino más económico:</h3>
-  <ul>
-    <li *ngFor="let ciudad of result.camino; let i = index">
-      {{ ciudad.name }}
-      <span *ngIf="i < result.camino.length - 1">➡️➡️➡️</span>
-      <span *ngIf="i < result.camino.length - 1">{{ result.camino[i+1].name }}</span>
-    </li>
-  </ul>
-  <p>Peso Total: {{ result.peso }}</p>
-</div>
 
+<main>
+  <header>
+    <img src="./assets/images/logo.png" alt="">
+  </header>
+
+  <div class="container">
+    <h2>Vuela inteligente</h2>
+    <h2>Gasta menos</h2>
+
+
+    <form (ngSubmit)="calculateShortestPath()" #dijkstraForm="ngForm">
+      <div class="formContent">
+        <div class="inputbox">
+          <label>Ciudad de Origen:</label>
+          <input
+            type="text"
+            placeholder="Origen"
+            [formControl]="inicio"
+            [matAutocomplete]="autoInicio"
+            class="example-input"/>
+          <mat-autocomplete #autoInicio="matAutocomplete">
+            <mat-option *ngFor="let street of filteredInicio | async" [value]="street">
+              {{ street }}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+        <div class="inputbox">
+          <label>Ciudad de Destino:</label>
+          <input
+            type="text"
+            placeholder="Destino"
+            [formControl]="fin"
+            [matAutocomplete]="autoFin"
+            class="example-input"/>
+          <mat-autocomplete #autoFin="matAutocomplete">
+            <mat-option *ngFor="let street of filteredFin | async" [value]="street">
+              {{ street }}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+        <div class="inputbox">
+          <label>Evitar Ciudad:</label>
+          <input
+            id="evitar"
+            type="text"
+            placeholder="Evitar"
+            [formControl]="evitar"
+            [matAutocomplete]="autoEvitar"
+            class="example-input"/>
+          <mat-autocomplete #autoEvitar="matAutocomplete">
+            <mat-option *ngFor="let street of filteredEvitar | async" [value]="street">
+              {{ street }}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+      </div>
+      <button type="submit">Buscar</button>
+
+    </form>
+    <div *ngIf="result" class="resultado">
+      <h3>Camino más económico:</h3>
+
+      <table>
+        <tr>
+          <th>Ciudad Origen</th>
+          <th>Ida</th>
+          <th>Ciudad Llegada</th>
+        </tr>
+        <tr *ngFor="let ciudad of result.camino; let i = index">
+          <td>{{ ciudad.name }}</td>
+          <td><span *ngIf="i < result.camino.length - 1">➡️➡️➡️</span></td>
+          <td> <span *ngIf="i < result.camino.length - 1">{{ result.camino[i+1].name}}</span></td>
+
+        </tr>
+      </table>
+
+      <h4>Peso Total: <p>{{ result.peso }}PEN</p></h4>
+      <button (click)="resert()">Otra Consulta</button>
+    </div>
+  </div>
+</main>

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { RespaldComponent } from './components/respald/respald.component';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RespaldComponent } from './components/respald/respald.component';
     BrowserAnimationsModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
